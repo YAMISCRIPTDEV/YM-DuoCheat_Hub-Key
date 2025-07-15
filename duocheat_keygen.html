@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> 🔑YM DuoCheat_Hub Key</title>
+  <style>
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background: #0077be;
+      color: #00FF00;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.85);
+      padding: 40px;
+      border-radius: 30px;
+      box-shadow: 0 0 20px #00FF00;
+      border: 8px solid transparent;
+      background-clip: padding-box;
+      position: relative;
+    }
+    .container::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      z-index: -1;
+      background: linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet, red);
+      border-radius: 34px;
+      animation: rainbow-border 6s linear infinite;
+    }
+    @keyframes rainbow-border {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+    .key {
+      font-size: 28px;
+      margin: 20px 0;
+      font-weight: bold;
+      color: #00FF00;
+      letter-spacing: 2px;
+      white-space: pre;
+    }
+    .copy-btn {
+      padding: 12px 24px;
+      font-size: 16px;
+      border: 1px solid #00FF00;
+      background-color: transparent;
+      color: #00FF00;
+      border-radius: 10px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+    .copy-btn:hover {
+      background-color: #00FF00;
+      color: #000;
+    }
+    .from-dev {
+      margin-top: 10px;
+      color: #ffffff;
+      font-size: 14px;
+      font-style: italic;
+    }
+    .expire-time {
+      margin-top: 8px;
+      color: #ffffff;
+      font-size: 14px;
+    }
+    .countdown {
+      color: #FFFFFF;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+    .thankyou {
+      margin-top: 10px;
+      color: #FFFFFF;
+      font-size: 16px;
+      font-style: italic;
+    }
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      z-index: 9999;
+      color: #00ff00;
+      user-select: none;
+      pointer-events: none;
+      animation: fall linear infinite;
+      font-size: 14px;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+    h1 {
+      margin-top: 0;
+      color: white;
+      background: linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet);
+      background-size: 1400% 1400%;
+      border-radius: 15px;
+      padding: 10px 20px;
+      animation: rainbow-move 6s linear infinite;
+    }
+    @keyframes rainbow-move {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://files.catbox.moe/z3krcu.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container">
+    <h1>🔑YM DuoCheat_Hub Key</h1>
+    <div class="thankyou">♥Thank you for get key YM DuoCheat_Hub!♥</div>
+    <div class="key" id="generatedKey"></div>
+    <div class="expire-time" id="expireTime"></div>
+    <div class="countdown" id="countdown"></div>
+    <button class="copy-btn" id="copyBtn" onclick="fallbackCopy()">Copy Key</button>
+    <div class="from-dev">From developer YAMISCRIPT_DEV</div>
+  </div>
+
+  <script>
+    let expire;
+    let key;
+
+    function generateKeyAnimation(k) {
+      const display = document.getElementById('generatedKey');
+      display.textContent = '';
+      let i = 0;
+      const interval = setInterval(() => {
+        display.textContent += k[i];
+        i++;
+        if (i >= k.length) clearInterval(interval);
+      }, 100);
+    }
+
+    function formatDateTime(date) {
+      return date.toLocaleString();
+    }
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = expire - now;
+
+      if (diff <= 0) {
+        document.getElementById('countdown').textContent = '⛔ Key expired';
+        localStorage.removeItem('duokey');
+        localStorage.removeItem('expire');
+        return;
+      }
+
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('countdown').textContent = `⏱ Time left: ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    function generateKey() {
+      const totalLength = 10;
+      let result = 'VIP-';
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      for (let i = 0; i < totalLength; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return result;
+    }
+
+    function fallbackCopy() {
+      const key = document.getElementById('generatedKey');
+      const range = document.createRange();
+      range.selectNode(key);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      try {
+        document.execCommand('copy');
+        const btn = document.getElementById('copyBtn');
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = 'Copy Key', 2000);
+      } catch (err) {
+        alert('❌ Copy not supported in this browser.');
+      }
+      window.getSelection().removeAllRanges();
+    }
+
+    function createSnowflakes() {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.textContent = '*';
+      snowflake.style.left = Math.random() * window.innerWidth + 'px';
+      snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      document.body.appendChild(snowflake);
+      setTimeout(() => snowflake.remove(), 5000);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      let savedKey = localStorage.getItem('duokey');
+      let savedExpire = localStorage.getItem('expire');
+      const now = new Date();
+
+      if (!savedKey || !savedExpire || new Date(savedExpire) < now) {
+        key = generateKey();
+        expire = new Date(now.getTime() + 48 * 60 * 60 * 1000);
+        localStorage.setItem('duokey', key);
+        localStorage.setItem('expire', expire.toISOString());
+      } else {
+        key = savedKey;
+        expire = new Date(savedExpire);
+      }
+
+      generateKeyAnimation(key);
+      document.getElementById('expireTime').textContent = '⏳ Key Expire: ' + formatDateTime(expire);
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    });
+
+    setInterval(createSnowflakes, 150);
+  </script>
+</body>
+</html>
